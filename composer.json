@@ -11,7 +11,8 @@
     ],
     "autoload": {
         "psr-4": {
-            "jjsquady\\": "app/"
+            "jjsquady\\": "app/",
+            "Application\\": "app/Source/"
         },
         "files": [
             "app/Support/helpers.php"

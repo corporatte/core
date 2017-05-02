@@ -12,7 +12,7 @@ namespace jjsquady;
 use jjsquady\Environment\Environment;
 use jjsquady\Contracts\Application as ApplicationContract;
 
-class Application implements ApplicationContract
+final class Application implements ApplicationContract
 {
     protected static $instance;
 
@@ -49,14 +49,20 @@ class Application implements ApplicationContract
 
     public function bind($key, $callback)
     {
-        // TODO: Implement bind() method.
+        if (isset($this->container[$key])) {
+            throw new \Exception("A Singleton instance of `$key` exists in the Container.");
+        }
+
+        $this->container[$key] = $callback;
     }
 
     public function make($key)
     {
-        $this->checkInstanceOfKey($key);
+        $this->checkForKey($key);
 
-        return $this->container[$key];
+        return ($this->container[$key] instanceof \Closure) ?
+            $this->container[$key]($this) :
+            $this->container[$key];
     }
 
     public function loadConfig($configName)
@@ -69,13 +75,27 @@ class Application implements ApplicationContract
         return require_once($path);
     }
 
-    private function checkInstanceOfKey($key)
+    public function end()
+    {
+        $endStatus = false;
+
+        try {
+            unset($this->container);
+            self::$instance = null;
+            $endStatus = true;
+
+        }catch (\Exception $e) {
+            throw new \Exception($e->getMessage(), $e->getCode());
+        } finally {
+            return $endStatus;
+        }
+    }
+
+    private function checkForKey($key)
     {
         if (!array_key_exists($key, $this->container)) {
             throw new \Exception("Key `$key` not exists in Container.");
         }
-
-        return $this->container[$key];
     }
 
     private function loadEnvironment()

@@ -12,28 +12,48 @@ namespace jjsquady\Providers;
 use jjsquady\Contracts\Application;
 use jjsquady\Contracts\ServiceProvider as ServiceProviderContract;
 
+/**
+ * Class ServiceProvider
+ * @package jjsquady\Providers
+ */
 abstract class ServiceProvider implements ServiceProviderContract
 {
+    /**
+     * @var Application
+     */
     protected $app;
 
+    /**
+     * ServiceProvider constructor.
+     * @param Application $app
+     */
     public function __construct(Application $app)
     {
         $this->app = $app;
     }
 
+    /**
+     *
+     */
     public function boot()
     {
-        self::boot();
+        // Overrided
     }
 
+    /**
+     *
+     */
     public function register()
     {
-        self::register();
+        // Overrided
     }
 
+    /**
+     *
+     */
     public function provides()
     {
-        self::provides();
+        // Overrided
     }
 
 }

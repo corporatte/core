@@ -93,7 +93,7 @@ final class Application implements ApplicationContract
      */
     public function make($key, $params = null)
     {
-        if (is_null($this->checkForKey($key))) {
+        if (! $this->checkForKey($key)) {
             return null;
         }
 
@@ -147,9 +147,7 @@ final class Application implements ApplicationContract
      */
     private function checkForKey($key)
     {
-        if (!array_key_exists($key, $this->container)) {
-            return null;
-        }
+        return array_key_exists($key, $this->container);
     }
 
     /**

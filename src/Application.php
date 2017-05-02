@@ -9,7 +9,7 @@
 namespace Corporatte\Core;
 
 
-use Corporatte\Core\Environment\Environment;
+use Corporatte\Environment\Environment;
 use Corporatte\Core\Contracts\Application as ApplicationContract;
 
 /**

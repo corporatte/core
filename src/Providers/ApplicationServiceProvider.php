@@ -8,6 +8,8 @@
 
 namespace Corpotatte\Core\Providers;
 
+use Corporatte\Core\Providers\ServiceProvider;
+
 
 /**
  * Class ApplicationServiceProvider

@@ -17,7 +17,9 @@
             "src/Support/helpers.php"
         ]
     },
-    "require": {},
+    "require": {
+        "corporatte/environment": "^0.1"
+    },
     "require-dev": {
         "phpunit/phpunit": "5.7.*"
     }

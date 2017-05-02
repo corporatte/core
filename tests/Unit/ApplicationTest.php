@@ -6,7 +6,7 @@
  * Time: 23:13
  */
 
-namespace jjsquady\ProcessaAnaliticos;
+namespace Corporatte\Core;
 
 class ApplicationTest extends \PHPUnit_Framework_TestCase
 {

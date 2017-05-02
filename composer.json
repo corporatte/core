@@ -1,6 +1,6 @@
 {
     "name": "jjsquady/base-ioc-application",
-    "description": "A OOP IoC Application (for OOP study)",
+    "description": "A OOP IoC Application (for OOP study) -WIP-",
     "type": "",
     "license": "MIT",
     "authors": [
@@ -11,11 +11,10 @@
     ],
     "autoload": {
         "psr-4": {
-            "jjsquady\\": "app/",
-            "Application\\": "app/Source/"
+            "jjsquady\\": "src/"
         },
         "files": [
-            "app/Support/helpers.php"
+            "src/Support/helpers.php"
         ]
     },
     "require": {},

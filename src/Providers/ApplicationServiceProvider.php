@@ -25,7 +25,7 @@ class ApplicationServiceProvider extends ServiceProvider
 
         // This is a simple echo when application load OK
         // You can remove it
-        echo "APPLICATION STARTED! (ApplicationServiceProvider::register loaded)";
+        //echo "APPLICATION STARTED! (ApplicationServiceProvider::register loaded)";
     }
 
     /**

@@ -12,12 +12,25 @@ namespace jjsquady;
 use jjsquady\Environment\Environment;
 use jjsquady\Contracts\Application as ApplicationContract;
 
+/**
+ * Class Application
+ * @package jjsquady
+ */
 final class Application implements ApplicationContract
 {
+    /**
+     * @var
+     */
     protected static $instance;
 
+    /**
+     * @var array
+     */
     protected $container = [];
 
+    /**
+     * @return Application
+     */
     public static function create()
     {
         self::$instance = new self();
@@ -25,11 +38,17 @@ final class Application implements ApplicationContract
         return self::$instance;
     }
 
+    /**
+     * @return ApplicationContract
+     */
     public static function application(): ApplicationContract
     {
         return self::$instance;
     }
 
+    /**
+     *
+     */
     public function register()
     {
         $this->loadEnvironment();
@@ -38,6 +57,11 @@ final class Application implements ApplicationContract
 
     }
 
+    /**
+     * @param $key
+     * @param $callback
+     * @throws \Exception
+     */
     public function singleton($key, $callback)
     {
         if (isset($this->container[$key])) {
@@ -47,6 +71,11 @@ final class Application implements ApplicationContract
         $this->container[$key] = $callback($this);
     }
 
+    /**
+     * @param $key
+     * @param $callback
+     * @throws \Exception
+     */
     public function bind($key, $callback)
     {
         if (isset($this->container[$key])) {
@@ -56,15 +85,32 @@ final class Application implements ApplicationContract
         $this->container[$key] = $callback;
     }
 
-    public function make($key)
+    /**
+     * @param $key
+     * @param null $params
+     * @return mixed
+     * @throws \Exception
+     */
+    public function make($key, $params = null)
     {
-        $this->checkForKey($key);
+        if (is_null($this->checkForKey($key))) {
+            return null;
+        }
+
+        if (!is_null($params) && !is_array($params)) {
+            throw new \Exception('Argument $params needs an array value.');
+        }
 
         return ($this->container[$key] instanceof \Closure) ?
-            $this->container[$key]($this) :
+            $this->container[$key]($this, ...$params) :
             $this->container[$key];
     }
 
+    /**
+     * @param $configName
+     * @return mixed
+     * @throws \Exception
+     */
     public function loadConfig($configName)
     {
         $path = basepath('config' . DIRECTORY_SEPARATOR . $configName . '.php');
@@ -75,6 +121,10 @@ final class Application implements ApplicationContract
         return require_once($path);
     }
 
+    /**
+     * @return bool
+     * @throws \Exception
+     */
     public function end()
     {
         $endStatus = false;
@@ -82,27 +132,37 @@ final class Application implements ApplicationContract
         try {
             unset($this->container);
             self::$instance = null;
-            $endStatus = true;
+            $endStatus      = true;
 
-        }catch (\Exception $e) {
+        } catch (\Exception $e) {
             throw new \Exception($e->getMessage(), $e->getCode());
         } finally {
             return $endStatus;
         }
     }
 
+    /**
+     * @param $key
+     * @return mixed
+     */
     private function checkForKey($key)
     {
         if (!array_key_exists($key, $this->container)) {
-            throw new \Exception("Key `$key` not exists in Container.");
+            return null;
         }
     }
 
+    /**
+     *
+     */
     private function loadEnvironment()
     {
         Environment::load(basepath('.env'));
     }
 
+    /**
+     *
+     */
     private function registerServiceProviders()
     {
         $appConfig = $this->loadConfig('app');
@@ -116,6 +176,10 @@ final class Application implements ApplicationContract
             });
 
             $instance = app()->make($provider);
+
+            if (is_null($instance)) {
+                throw new \Exception("Cannot get instance of null. Do you forget to register the provider?");
+            }
 
             if (method_exists($instance, 'boot')) {
                 $instance->boot();

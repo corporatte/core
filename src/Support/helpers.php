@@ -21,11 +21,13 @@ if (!function_exists('base_path')) {
 
     function basepath($path = null)
     {
+        $appPath = (app()->make('app_path')) ?? __DIR__ . DIRECTORY_SEPARATOR . "../..";
+
         if (!is_null($path)) {
-            return __DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . $path;
+            return $appPath . DIRECTORY_SEPARATOR . $path;
         }
 
-        return __DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR;
+        return $appPath . DIRECTORY_SEPARATOR;
     }
 
 }

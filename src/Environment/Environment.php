@@ -28,7 +28,6 @@ final class Environment implements EnvironmentContract
             $envArray = array_filter(explode("\n", trim(file_get_contents($envFile))));
 
             foreach ($envArray as $pair) {
-                if (str)
 
                 $envVars = preg_split("/ ?= ?/", trim($pair));
 

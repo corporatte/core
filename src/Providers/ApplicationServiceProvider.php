@@ -9,27 +9,28 @@
 namespace jjsquady\Providers;
 
 
+/**
+ * Class ApplicationServiceProvider
+ * @package jjsquady\Providers
+ */
 class ApplicationServiceProvider extends ServiceProvider
 {
-    public function boot()
-    {
 
-    }
-
+    /**
+     * Register Provider dependencies and others
+     */
     public function register()
     {
         $this->loadConfigurations();
 
         // This is a simple echo when application load OK
-        // You can remove it, and return that what you want
-        echo "APPLICATION STARTED! (ApplicationServiceProvider::register loaded)";
+        // You can remove it
+        //echo "APPLICATION STARTED! (ApplicationServiceProvider::register loaded)";
     }
 
-    public function provides()
-    {
-
-    }
-
+    /**
+     * Loads all file configurations in config folder
+     */
     private function loadConfigurations()
     {
         $configFiles = scandir(basepath('config'));

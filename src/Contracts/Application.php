@@ -24,4 +24,6 @@ interface Application
     public function make($key);
 
     public function loadConfig($configName);
+
+    public function end();
 }

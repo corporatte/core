@@ -1,0 +1,20 @@
+{
+  "name": "jjsquady/environment",
+  "description": "A Simple Enviroment Lib",
+  "type": "",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "jjsquady",
+      "email": "jorge.techinfo@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "jjsquady\\Environment\\": ""
+    },
+    "files": []
+  },
+  "require": {},
+  "require-dev": {}
+}

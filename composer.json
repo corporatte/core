@@ -1,0 +1,24 @@
+{
+    "name": "jjsquady/base-ioc-application",
+    "description": "A OOP IoC Application (for OOP study)",
+    "type": "",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "jjsquady",
+            "email": "jorge.techinfo@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "jjsquady\\": "app/"
+        },
+        "files": [
+            "app/Support/helpers.php"
+        ]
+    },
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "5.7.*"
+    }
+}

@@ -6,11 +6,11 @@
  * Time: 00:54
  */
 
-namespace jjsquady\Providers;
+namespace Corporatte\Core\Providers;
 
 
-use jjsquady\Contracts\Application;
-use jjsquady\Contracts\ServiceProvider as ServiceProviderContract;
+use Corporatte\Core\Contracts\Application;
+use Corporatte\Core\Contracts\ServiceProvider as ServiceProviderContract;
 
 /**
  * Class ServiceProvider

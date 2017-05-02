@@ -6,7 +6,7 @@
  * Time: 00:14
  */
 
-namespace jjsquady\Providers;
+namespace Corpotatte\Core\Providers;
 
 
 /**

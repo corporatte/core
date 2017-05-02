@@ -6,7 +6,7 @@
  * Time: 23:50
  */
 
-namespace jjsquady\Contracts;
+namespace Corporatte\Core\Contracts;
 
 
 interface ServiceProvider

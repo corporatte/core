@@ -6,8 +6,8 @@
  * Time: 23:20
  */
 
-use jjsquady\Environment\Environment;
-use jjsquady\Application;
+use Corporatte\Core\Environment\Environment;
+use Corporatte\Core\Application;
 
 if (!function_exists('app')) {
 

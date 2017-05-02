@@ -6,11 +6,11 @@
  * Time: 23:20
  */
 
-namespace jjsquady;
+namespace Corporatte\Core;
 
 
-use jjsquady\Environment\Environment;
-use jjsquady\Contracts\Application as ApplicationContract;
+use Corporatte\Core\Environment\Environment;
+use Corporatte\Core\Contracts\Application as ApplicationContract;
 
 /**
  * Class Application

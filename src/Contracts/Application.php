@@ -6,7 +6,7 @@
  * Time: 23:26
  */
 
-namespace jjsquady\Contracts;
+namespace Corporatte\Core\Contracts;
 
 
 interface Application

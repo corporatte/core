@@ -6,7 +6,7 @@
  * Time: 00:25
  */
 
-namespace jjsquady\Environment\Contracts;
+namespace Corporatte\Core\Environment\Contracts;
 
 
 /**

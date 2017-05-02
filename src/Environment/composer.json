@@ -1,5 +1,5 @@
 {
-  "name": "jjsquady/environment",
+  "name": "corporatte/environment",
   "description": "A Simple Enviroment Lib",
   "type": "",
   "license": "MIT",
@@ -11,7 +11,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "jjsquady\\Environment\\": ""
+      "Corporatte\\Environment\\": ""
     },
     "files": []
   },

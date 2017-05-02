@@ -6,7 +6,7 @@
  * Time: 23:20
  */
 
-use Corporatte\Core\Environment\Environment;
+use Corporatte\Environment\Environment;
 use Corporatte\Core\Application;
 
 if (!function_exists('app')) {

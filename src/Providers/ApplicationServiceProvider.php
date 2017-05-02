@@ -6,10 +6,7 @@
  * Time: 00:14
  */
 
-namespace Corpotatte\Core\Providers;
-
-use Corporatte\Core\Providers\ServiceProvider;
-
+namespace Corporatte\Core\Providers;
 
 /**
  * Class ApplicationServiceProvider
